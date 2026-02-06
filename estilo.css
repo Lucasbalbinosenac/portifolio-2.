@@ -1,0 +1,666 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* user-select: none; */
+}
+
+body::selection {
+    background-color: #efca62;
+    color: #003f66;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #242424;
+    background-color: #f1f1f1;
+    line-height: 1.6;
+}
+
+:root {
+    --primary-color: #3f22ec;
+    --secondary-color: #03e29a;
+    --accent-color: #efca62;
+    --light-bg: #ecf0f1;
+    --dark-text: #2c3e50;
+    --white: #f1f1f1;
+    --shadow: 0 10px 30px rgb(0, 0, 0, 0.2);
+    --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    box-shadow: 0 5px 5px #0000001a;
+    z-index: 100;
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-size: 3.0rem;
+    text-shadow: 2px 2px px #000000ab;
+    font-weight: 590;
+    color: #003f66;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark-text);
+    font-weight: 500;
+    position: relative;
+    transition: var(--transition);
+
+}
+
+.gallery-item a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 500;
+    position: relative;
+    transition: var(--transition);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.hero {
+    background: linear-gradient(90deg, #003f66 0%, #011b2f 100%);
+    color: var(--white);
+    padding: 8rem 5%;
+    border-radius: 35px;
+    max-width: 1650px;
+    margin: 60px auto;
+    text-align: center;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 2;
+    }
+}
+
+.hero-content {
+    animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/*------------------------------- Título */
+
+.hero-title {
+    font-size: 3.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* --------------------------------Botão */
+
+.cta-button {
+    background-color: #ffb915;
+    color: var(--white);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px #20202066;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 10px #00000099;
+    color: var(--white);
+    background-color: #ffd358;
+}
+
+.cta-button:active {
+    transform: translateY(-1px);
+    background-color: var(--white);
+}
+
+/* -------------------------------------Sobre */
+
+.about {
+    background-color: #f1f1f1;
+    padding: 5rem 5%;
+    margin: 0 auto;
+    animation: fadeIn 1s ease-out;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 2rem;
+    color: var(--dark-text);
+    text-align: center;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    text-align: justify;
+    color: #555;
+}
+
+/* --------------------------------IMAGENS  */
+
+.gallery {
+    padding: 5rem 5%;
+    background-color: #ffffff;
+}
+
+.gallery h2 {
+    font-size: 2.5rem;
+    font-family: serif;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--dark-text)
+}
+
+.social-link {
+    color: var(--white);
+    text-decoration: none;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.gallery-item {
+    position: relative;
+    width: calc(33.333% - 1.35rem);
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    animation: scaleIn 0.6s ease-out;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+}
+
+.gallery-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.gallery-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.gallery-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.gallery-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.gallery-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.gallery-item:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+
+/* ------------------------------------------HOVER IMG */
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #030000a4 0%, #ffd358 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    opacity: 0;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.3) rotate(2deg);
+    filter: hue-rotate(20deg);
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay p {
+    font-size: 1rem;
+    font-weight: bolder;
+    text-shadow: 0 3px 0px #00000099 animation: slideInUp 0.5s ease-out;
+}
+
+.gallery-overlay h3 {
+    font-size: 1.8rem;
+    text-shadow: 0 2px 0px #00000099;
+    margin-bottom: 0.5rem;
+    animation: slideInUp 0.5s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+}
+
+/* -------------------------------------HABILIDADES */
+
+.skills {
+    /* font-size: 2rem; */
+    padding: 5rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+.skills h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--dark-text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.skill-card {
+    width: calc(25% - 1.5rem);
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px #00000050;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.skill-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.skill-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.skill-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.skill-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+
+/* -------------------------------------HABILIDADES HOVER */
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow);
+    background: linear-gradient(90deg, #002a45 0%, #003f66 100%);
+    color: var(--white);
+}
+
+.skill-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    transition: var(--transition);
+}
+
+.skill-card:hover .skill-icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.skill-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.skill-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* ---------------------------------CONTATO */
+
+.contact {
+    padding: 5rem 5%;
+    background-color: #fade91;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 2rem;
+    color: #242424;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    gap: 1.5rem;
+    animation: fadeIn 1s ease-out;
+
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 1rem;
+    border: 2px solid var(--dark-text);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: var(--transition);
+    resize: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #003f66;
+    box-shadow: 0 2px 5px #011b2f;
+}
+
+.submit-button {
+    background-color: #002a45;
+    color: var(--white);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 3px 3px black
+}
+
+.submit-button:hover {
+    background-color: #ffb915;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px #a07104cc;
+}
+
+@keyframes fadeIn {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+}
+
+.footer {
+    background-color: #003f66;
+    color: var(--white);
+    padding: 1rem 1%;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content p {
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.social-link {
+    color: var(--white);
+    text-decoration: none;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.social-link:hover {
+    color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+/* ----------------------------BOTÃO QUE LEVA A TELA PARA O TOPO  */
+
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background-color: #ffd358;
+    color: var(--white);
+    border-radius: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 5px 5px #00000080;
+    z-index: 99;
+    transition: var(--transition);
+}
+
+.back-to-top:hover {
+    background-color: var(--accent-color);
+    box-shadow: 0px 5px 5px #9b750f;
+    transform: translateY(-5px);
+}
+
+
+/* ----------------------RESPONSIVIDADE--------------------------- */
+
+@media (max-width: 1024px) {
+
+    .gallery-item {
+        width: calc(50% - 1rem);
+    }
+
+    .skill-card {
+        width: calc(50% - 1rem);
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    /* ------------PARA DEIXAR EM LISTA VERTICAL O TEXTO DE CIMA  */
+
+    .nav-links {
+        /* flex-direction: column; */
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .hero {
+        padding: 4rem 5%;
+        min-height: 400px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .gallery-item {
+        width: 100%;
+    }
+
+    .skill-card {
+        width: 100%;
+    }
+
+    .about h2,
+    .gallery h2,
+    .skills h2,
+    .contact h2 {
+        font-size: 2rem;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .about-content p{
+        text-align: left;
+    }
+
+
+}
